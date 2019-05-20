@@ -35,6 +35,19 @@ php artisan migrate
 //}
 git status (check which files are modied)
 
+------------Laravel Mix------------------
+npm install
+npm run dev
+npm run dev
+// will generate the webpack of all packages that bundle with laravel
+
+---------- Mogration--------------------
+
+
+
+
+--------- Login/Register enable-----------
+php artisan make:auth
 
 
 PHP Packages
