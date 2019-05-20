@@ -1,0 +1,79 @@
+--------- Important ------------
+Neveruse http://hostname/public
+Always use virtual host or
+php artisan serve to run your own server 
+Always access your app theough http://hostname
+
+-----------Create a project-----------------
+composer create-project --prefer-dist laravel/laravel laravellearn
+
+-----------Import in Repository-----------
+git init
+git add .
+git commit -m "Message"
+git remote add origin https://github.com/mahmad2504/laravellearn.git
+git push --set-upstream origin master
+
+----- Git Pull ----------------
+git clone https://github.com/mahmad2504/laravellearn.git newfolder
+cd newfolder
+composer install
+rename .env.example .env
+Run php artisan key:generate
+Run php artisan migrate
+
+---------Install Laravel Telescope ------
+composer require laravel/telescope --dev
+php artisan telescope:install
+// You must fill in the database name, user and password in .env file
+php artisan migrate
+// If there is migration error, put this fix in appserviceprovider.php
+//use Illuminate\Support\Facades\Schema;
+//public function boot()
+//{
+//    Schema::defaultStringLength(191);
+//}
+git status (check which files are modied)
+
+
+
+PHP Packages
+https://packagist.org/
+
+Debugging
+Instaed of dump_vars use dd()   // exists too
+
+\Log::debug($languages);  // logs in storage\logs\laravel.log
+
+\Log::info('Just an informational message.');
+\Log::warning('Something may be going wrong.');
+\Log::error('Something is definitely going wrong.');
+\Log::critical('Danger, Will Robinson! Danger!');
+
+
+Chrome Console 
+Initialize monolog chrome handler in bootstrap/app.php
+
+$app->configureMonologUsing(function($monolog) {
+3 $monolog->pushHandler(new \Monolog\Handler\ChromePHPHandler());
+4 });
+5
+
+Laravel Debugbar
+
+
+PHP Console
+php artisan tinker
+
+'providers' => [
+        // Register Debug Bar Service Provider
+        Barryvdh\Debugbar\ServiceProvider::class,
+    ],
+
+    /* Rest of app.php */
+
+    'aliases' => [
+        // Register Debugbar alias
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
+    ],
+
